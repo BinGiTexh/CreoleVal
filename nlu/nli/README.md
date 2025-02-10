@@ -43,6 +43,8 @@ Filenames beginning with `params_` contain model hyperparameters where the pretr
 - **Data**: [GLUE MNLI](https://github.com/nyu-mll/GLUE-baselines) _(pretraining)_ + [`jampatoisnli`](https://github.com/ruth-ann/jampatoisnli) _(finetuning)_
   - Download script: [`download_jampatois_nli.sh`](download_jampatois_nli.sh)
 - **Config**: [`configs/nli_glue.json`](configs/nli_glue.json) _(pretraining)_ and [`configs/nli_jamaican.json`](configs/nli_jamaican.json) _(finetuning)_
-- run download_glue_data.py -> mkdir glue folder inside of /data -> this is what the training expects. Next, cp -r glue_data/MNLI/ data/glue
+- **Pre-reqs**:
+- run `download_glue_data.py` -> mkdir glue folder inside of /data -> this is what the training expects. Next, cp -r glue_data/MNLI/ data/glue
+- run the ./recut_mnli.sh
 - **Train**: `./train_and_finetune_jamnli.sh {mbert,mt5,xlmr}`
 - **Predict**: `./predict.sh logs/nli_jamaican_<model>_<date> data/jampatoisnli/test.tsv`
